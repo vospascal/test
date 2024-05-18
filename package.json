@@ -24,7 +24,10 @@
     ".": {
       "import": "./dist/my-example-library.es.js",
       "require": "./dist/my-example-library.umd.js"
-    }
+    },
+    "./types": "./dist/types/*",
+    "./dist/*": "./dist/*",
+    "./src/*": "./src/*"
   },
   "scripts": {
     "dev": "vite --host --open ",
@@ -32,7 +35,8 @@
     "types:check": "pnpm run build && tsc --noEmit",
     "preview": "vite preview",
     "lint:prettier": "prettier \"src/**/*.{js,ts}\" --check --ignore-path .gitignore",
-    "format:prettier": "prettier \"src/**/*.{js,ts}\" --write --ignore-path .gitignore"
+    "format:prettier": "prettier \"src/**/*.{js,ts}\" --write --ignore-path .gitignore",
+    "test": "TZ=UTC vitest"
   },
   "dependencies": {
     "lit": "^3.1.2"
@@ -41,9 +45,14 @@
     "@lit-labs/compiler": "^1.0.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^20.12.12",
+    "@vitest/coverage-v8": "^1.6.0",
+    "element-internals-polyfill": "^1.3.11",
+    "jsdom": "^24.0.0",
     "prettier": "^3.2.5",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "vite": "^5.2.0",
+    "vitest": "^1.6.0",
+    "vitest-fetch-mock": "^0.2.2"
   }
 }

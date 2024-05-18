@@ -13,7 +13,7 @@
     "moduleResolution": "Bundler",
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["vite/client", "node"],
+    "types": ["vitest/globals","vite/client", "node"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

@@ -18,9 +18,9 @@ jobs:
           node-version: 16.x
           registry-url: 'https://npm.pkg.github.com'
       - name: install
-        run: npm install
+        run: pnpm install
       - name: test
-        run: npm test
+        run: pnpm test
       # Publish to npm if this version is not published
       # - name: Publish
       #   run: |
