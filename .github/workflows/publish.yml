@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20.12.1
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: https://npm.pkg.github.com
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v3 # docs https://pnpm.io/continuous-integration#github-actions
@@ -41,7 +41,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20.12.1
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: https://npm.pkg.github.com
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v3 # docs https://pnpm.io/continuous-integration#github-actions
@@ -58,8 +58,9 @@ jobs:
 
       # Publish to npm if this version is not published
       - name: Publish
-        run: |
-          pnpm can-npm-publish --yes --verbose && npm publish || echo "Does not publish"
+        run: pnpm publish
+        # run: |
+        #   pnpm can-npm-publish --yes --verbose && npm publish || echo "Does not publish"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Push tag to GitHub if the version's tag is not tagged
