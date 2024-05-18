@@ -2,6 +2,9 @@
   "name": "@vospascal/test",
   "description": "test npm registry to GitHub Package Registry example.",
   "homepage": "https://github.com/vospascal/test",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "bugs": {
     "url": "https://github.com/vospascal/test/issues"
   },
