@@ -1,0 +1,49 @@
+{
+  "name": "@vospascal/test",
+  "description": "test npm registry to GitHub Package Registry example.",
+  "homepage": "https://github.com/vospascal/test",
+  "bugs": {
+    "url": "https://github.com/vospascal/test/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vospascal/test.git"
+  },
+  "author": "vospascal",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/my-example-library.umd.js",
+  "module": "./dist/my-example-library.es.js",
+  "types": "./dist/types/my-example-library.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/my-example-library.es.js",
+      "require": "./dist/my-example-library.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite --host --open ",
+    "build": "vite build",
+    "types:check": "pnpm run build && tsc --noEmit",
+    "preview": "vite preview",
+    "lint:prettier": "prettier \"src/**/*.{js,ts}\" --check --ignore-path .gitignore",
+    "format:prettier": "prettier \"src/**/*.{js,ts}\" --write --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "lit": "^3.1.2"
+  },
+  "devDependencies": {
+    "@lit-labs/compiler": "^1.0.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.12.12",
+    "prettier": "^3.2.5",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}
