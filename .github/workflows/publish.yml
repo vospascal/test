@@ -6,7 +6,7 @@ on:
     tags:
       - "!*"
 jobs:
-  release:
+  test:
     name: Setup
     runs-on: ubuntu-latest
     steps:
@@ -28,11 +28,34 @@ jobs:
         run: pnpm install
       - name: test
         run: pnpm test
-        
+  
+  build-and-deploy:
+    name: Setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.12.1
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3 # docs https://pnpm.io/continuous-integration#github-actions
+        with:
+            version: 8.15.6  # Optional: specify a pnpm version    
+
+      # Build the project
+      - name: Build
+        run: |
+          pnpm build
+
       # Publish to npm if this version is not published
       - name: Publish
         run: |
-          npm can-npm-publish --yes --verbose && npm publish || echo "Does not publish"
+          pnpm can-npm-publish --yes --verbose && npm publish || echo "Does not publish"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Push tag to GitHub if the version's tag is not tagged
