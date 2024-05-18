@@ -7,7 +7,7 @@ on:
       - "!*"
 jobs:
   test:
-    name: Setup
+    name: Test and Build
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -30,7 +30,7 @@ jobs:
         run: pnpm test
   
   build-and-deploy:
-    name: Setup
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: checkout
