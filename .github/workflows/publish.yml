@@ -68,7 +68,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Push tag to GitHub if the version's tag is not tagged
-      - name: set PACKAGE_VERSION
+      - name: package-version
         run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
       - name: package-version-to-git-tag
         uses: pkgdeps/git-tag-action@v2
@@ -78,3 +78,5 @@ jobs:
           version: ${{ env.PACKAGE_VERSION }}
           git_commit_sha: ${{ github.sha }}
           git_tag_prefix: "apps/test/v"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
