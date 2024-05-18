@@ -22,8 +22,8 @@ describe('Button', () => {
 
     wrapper.addEventListener('click', spy);
 
-    button.click();
-    button.click();
+    button!.click();
+    button!.click();
 
     await nextTick();
 

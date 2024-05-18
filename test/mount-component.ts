@@ -2,22 +2,6 @@ import { TemplateResult, render } from "lit";
 import { expect, vi } from "vitest";
 import nextTick from "./nextTick";
 
-// Mock the generateString method to always return the same value for testing snapshots
-vi.mock("../utilities", async () => {
-  const originalModules = await vi.importActual<typeof import("../utilities")>("../utilities");
-
-  // Note that every call of generateString will increment the number and return a unique string
-  const mockedGenerateString = vi.fn().mockImplementation(() => {
-    return "generatedString" + mockedGenerateString.mock.calls.length;
-  });
-
-  return {
-    ...originalModules,
-    // Mocked module(s) go here:
-    generateString: mockedGenerateString,
-  };
-});
-
 export default async function mountComponent(
   litTemplate: TemplateResult,
   expectErrorLog = false,
