@@ -14,19 +14,18 @@
   },
   "author": "vospascal",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "files": [
     "dist",
     "src"
   ],
-  "main": "./dist/my-example-library.umd.js",
-  "module": "./dist/my-example-library.es.js",
+  "main": "./dist/my-example-library.js",
+  "module": "./dist/my-example-library.js",
   "types": "./dist/types/my-example-library.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/my-example-library.es.js",
-      "require": "./dist/my-example-library.umd.js"
+      "import": "./dist/my-example-library.js"
     },
     "./types": "./dist/types/*",
     "./dist/*": "./dist/*",
