@@ -25,7 +25,18 @@
   "types": "./dist/types/my-example-library.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/my-example-library.js"
+      "module": {
+        "types": "./dist/types/my-example-library.d.ts",
+        "default": "./dist/my-example-library.js"
+      },
+      "import": {
+        "node": "./dist/my-example-library.js",
+        "default": {
+          "types": "./dist/types/my-example-library.d.ts",
+          "default": "./dist/my-example-library.js"
+        }
+      },
+      "default": "./dist/my-example-library.js"
     },
     "./types": "./dist/types/*",
     "./dist/*": "./dist/*",
