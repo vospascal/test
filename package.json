@@ -1,5 +1,5 @@
 {
-  "name": "@vospascal/test",
+  "name": "test",
   "description": "test npm registry to GitHub Package Registry example.",
   "homepage": "https://github.com/vospascal/test",
   "publishConfig": {
@@ -14,7 +14,7 @@
   },
   "author": "vospascal",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "files": [
     "dist",
